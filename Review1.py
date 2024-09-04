@@ -104,3 +104,29 @@ def funcix():
     return(arr)
 
 print(timeit.timeit(funcix, number=1000))
+
+test_list = ["a","b", "c", "d", "e"]
+
+def allperms(my_list):
+    
+    if not (my_list):
+        return []
+    
+    if len(my_list) ==1:
+        return[my_list]
+    
+    total = []
+    for i in range(len(my_list)):
+        temp = my_list[i]
+        leftover = my_list[:i] + my_list[i+1:]
+
+        for each in allperms(leftover):
+            total.append([temp]+each)
+    return total
+
+for i in allperms(test_list):
+    print(i)
+
+def allcomb(my_list):
+    
+
